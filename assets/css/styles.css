@@ -154,7 +154,7 @@ body.dark-theme{
 }
 @media screen and (min-width: 768px) and (max-width: 1024px){
   .change-theme{
-    top: 2.5rem;
+    top: 5.5rem;
     right: 1.5rem;
   }
 }
@@ -1368,17 +1368,23 @@ img {
 }
 
 /* Slides wrapper */
-.testimonial__slides,
-.carousel__slides {
+.testimonial__slides {
   display: flex;
   
   width: 300%;
   transition: transform .5s ease;
 }
 
+.portfolio__slides {
+  display: flex;
+  
+  width: 600%;
+  transition: transform .5s ease;
+}
+
 /* Each slide = 1/3 width */
 .carousel__slide {
-  flex: 0 0 33.3333%;
+  flex: 0 0 16.66666666%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1412,21 +1418,21 @@ img {
 }
 
 
-/* Move slides based on checked radio */
-#slide1:checked ~ .carousel__slides {
-  transform: translateX(0%);
-}
-#slide2:checked ~ .carousel__slides {
-  transform: translateX(-33.3333%);
-}
-#slide3:checked ~ .carousel__slides {
-  transform: translateX(-66.6666%);
-}
+#slide1:checked ~ .portfolio__slides { transform: translateX(   0%); }
+#slide2:checked ~ .portfolio__slides { transform: translateX(-16.6666%); }
+#slide3:checked ~ .portfolio__slides { transform: translateX(-33.3333%); }
+#slide4:checked ~ .portfolio__slides { transform: translateX(-50%   ); }
+#slide5:checked ~ .portfolio__slides { transform: translateX(-66.6666%); }
+#slide6:checked ~ .portfolio__slides { transform: translateX(-83.3333%); }
+
 
 /* 2. Active slide styles */
 #slide1:checked ~ .carousel__slides .s1,
 #slide2:checked ~ .carousel__slides .s2,
-#slide3:checked ~ .carousel__slides .s3 {
+#slide3:checked ~ .carousel__slides .s3,
+#slide4:checked ~ .carousel__slides .s4,
+#slide5:checked ~ .carousel__slides .s5,
+#slide6:checked ~ .carousel__slides .s6 {
   opacity: 1;
   transform: scale(1);
   z-index: 2;                    /* bring on top */
@@ -1447,7 +1453,13 @@ img {
 #slide2:checked ~ .carousel__nav .prev2,
 #slide2:checked ~ .carousel__nav .next2,
 #slide3:checked ~ .carousel__nav .prev3,
-#slide3:checked ~ .carousel__nav .next3 {
+#slide3:checked ~ .carousel__nav .next3,
+#slide4:checked ~ .carousel__nav .prev4,
+#slide4:checked ~ .carousel__nav .next4,
+#slide5:checked ~ .carousel__nav .prev5,
+#slide5:checked ~ .carousel__nav .next5,
+#slide6:checked ~ .carousel__nav .prev6,
+#slide6:checked ~ .carousel__nav .next6 {
   display: block;
   position: absolute;
   top: 53%;
@@ -1458,22 +1470,25 @@ img {
   user-select: none;
   z-index: 10;
 }
-.prev1, .prev2, .prev3 { left: 4rem; }
-.next1, .next2, .next3 { right: 4rem; }
+.prev1, .prev2, .prev3, .prev4, .prev5, .prev6 { left: 4rem; }
+.next1, .next2, .next3,.next4, .next5, .next6 { right: 4rem; }
 @media screen and (max-width: 767px) {
-  .prev1, .prev2, .prev3 { left: 1rem; }
-  .next1, .next2, .next3 { right: 1rem; }
+  .prev1, .prev2, .prev3, .prev4, .prev5, .prev6 { left: 1rem; }
+  .next1, .next2, .next3,.next4, .next5, .next6 { right: 1rem; }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .prev1, .prev2, .prev3 { left: 2rem; }
-  .next1, .next2, .next3 { right: 2rem; }
+  .prev1, .prev2, .prev3, .prev4, .prev5, .prev6 { left: 2rem; }
+  .next1, .next2, .next3,.next4, .next5, .next6 { right: 2rem; }
 }
 
 
 /* Show active pagination dot */
 #slide1:checked ~ .carousel__dots .dot1,
 #slide2:checked ~ .carousel__dots .dot2,
-#slide3:checked ~ .carousel__dots .dot3 {
+#slide3:checked ~ .carousel__dots .dot3,
+#slide4:checked ~ .carousel__dots .dot4,
+#slide5:checked ~ .carousel__dots .dot5,
+#slide6:checked ~ .carousel__dots .dot6 {
   display: inline-block;
   transform: scale(1.2);
   width: .8rem; height: .8rem;
@@ -1667,3 +1682,69 @@ img {
   }
   
 }
+
+
+/* ========== Certifications Section ========== */
+.certifications {
+  padding: 4rem 0;
+}
+.certifications__container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.certification__card {
+  background: var(--container-color);
+  border-radius: .5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.certification__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.certification__img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+.certification__title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+.certification__button {
+  font-size: .9rem;
+  gap: .4rem;
+
+  display: inline-flex;       
+  align-items: center;
+  justify-content: center;
+  width: 100%;                 
+  max-width: 200px;           
+  margin: 0 auto;         
+  padding: .75rem 1rem;
+}
+
+.certification__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* push title and button apart */
+  height: 100%;
+}
+
+.certification__img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.certifications__container.container {
+  max-width: 1024px;  /* or your regular container width */
+  margin: 0 auto;
+}
+
