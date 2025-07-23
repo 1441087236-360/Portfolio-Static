@@ -152,6 +152,12 @@ body.dark-theme{
     z-index: 1001;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .change-theme{
+    top: 2.5rem;
+    right: 1.5rem;
+  }
+}
 
 /*==================== BASE ====================*/
 * {
