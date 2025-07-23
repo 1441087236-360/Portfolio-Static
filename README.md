@@ -6,4 +6,10 @@
 - Developed first with the Mobile First methodology, then for desktop.
 - Compatible with all mobile devices and with a beautiful and pleasant user interface.
 
-![preview img](/preview.png)
+# Add URL
+https://www.anmol-shukla.netlify.app
+
+# Video Des. and SRS Documentation
+https://drive.google.com/drive/folders/1tuTkBMsIMSLhYbEAbs_P-f3OKftj_O9Z?usp=sharing
+
+![preview img](assets/img/preview.png)
